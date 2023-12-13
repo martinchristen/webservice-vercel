@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {AppBar, Toolbar, Button} from '@mui/material';
+import FruchtListe from './fruchtliste';
 
 export default function Index() {
     const [tab, setTab] = useState('tab1');
@@ -17,7 +18,7 @@ export default function Index() {
     </AppBar>
 
     {tab === 'tab1' && (<><h1>Inhalt Tab 1</h1></> )}
-    {tab === 'tab2' && (<><h1>Inhalt Tab 2</h1></> )}
+    {tab === 'tab2' && (<><h1><FruchtListe /></h1></> )}
 
     </>)
 }
