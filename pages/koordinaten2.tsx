@@ -53,7 +53,7 @@ const Koordinaten2 = () => {
                 label="Latitude"
                 type="text"
                 value={lat}
-                onChange={ (e) => setLat(e.target.value)}}
+                onChange={ (e) => setLat(e.target.value)}
                 fullWidth
                 margin="normal"
             />
