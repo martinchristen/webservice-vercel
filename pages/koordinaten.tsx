@@ -17,17 +17,6 @@ const Koordinaten = () => {
         }
     }
 
-    const readlng = (e) => {
-        const inputValue = e.target.value;
-        setLng(inputValue);
-      };
-
-      const readlat = (e) => {
-        const inputValue = e.target.value;
-        setLat(inputValue);
-        
-      };
-
     return (
     <>
         <Paper elevation={5} style={{padding: '15px', margin: '15px', maxWidth: '400px'}}>
@@ -36,7 +25,7 @@ const Koordinaten = () => {
                 label="Longitude"
                 type="text"
                 value={lng}
-                onChange={ (e) => readlng(e)}
+                onChange={ (e) => setLng(e.target.value)}
                 fullWidth
                 margin="normal"
             />
@@ -44,7 +33,7 @@ const Koordinaten = () => {
                 label="Latitude"
                 type="text"
                 value={lat}
-                onChange={ (e) => readlat(e)}
+                onChange={ (e) => setLat(e.target.value)}
                 fullWidth
                 margin="normal"
             />

@@ -27,27 +27,6 @@ const Koordinaten2 = () => {
         }
       }, []);
 
-    const addition = async() => {
-        try {
-            const response = await axios.get(`/api/transform?lat=${lat}&lng=${lng}`);
-            setResultat(response.data.result);
-        }
-        catch {
-            console.log("Fehler!! API Aufruf!!");
-        }
-    }
-
-    const readlng = (e) => {
-        const inputValue = e.target.value;
-        setLng(inputValue);
-      };
-
-      const readlat = (e) => {
-        const inputValue = e.target.value;
-        setLat(inputValue);
-        
-      };
-
     return (
     <>
         <Paper elevation={5} style={{padding: '15px', margin: '15px', maxWidth: '400px'}}>
@@ -56,7 +35,7 @@ const Koordinaten2 = () => {
                 label="Longitude"
                 type="text"
                 value={lng}
-                onChange={ (e) => readlng(e)}
+                onChange={ (e) => setLng(e.target.value)}
                 fullWidth
                 margin="normal"
             />
@@ -64,7 +43,7 @@ const Koordinaten2 = () => {
                 label="Latitude"
                 type="text"
                 value={lat}
-                onChange={ (e) => readlat(e)}
+                onChange={ (e) => setLat(e.target.value)}
                 fullWidth
                 margin="normal"
             />
