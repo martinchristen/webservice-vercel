@@ -16,7 +16,7 @@ const Koordinaten2 = () => {
             (position) => {
               const { latitude, longitude } = position.coords;
               setLat(latitude.toString());
-              setLng(longitude.toString());
+              setLlng(longitude.toString());
             },
             (error) => {
               setError(`Fehler beim Abrufen der Position: ${error.message}`);
@@ -26,6 +26,16 @@ const Koordinaten2 = () => {
           setError("Geolocation wird vom Browser nicht unterstützt");
         }
       }, []);
+
+    const addition = async() => {
+        try {
+            const response = await axios.get(`/api/transform?lat=${lat}&lng=${lng}`);
+            setResultat(response.data.result);
+        }
+        catch {
+            console.log("Fehler!! API Aufruf!!");
+        }
+    }
 
     return (
     <>
@@ -43,7 +53,7 @@ const Koordinaten2 = () => {
                 label="Latitude"
                 type="text"
                 value={lat}
-                onChange={ (e) => setLat(e.target.value)}
+                onChange={ (e) => setLat(e.target.value)}}
                 fullWidth
                 margin="normal"
             />
