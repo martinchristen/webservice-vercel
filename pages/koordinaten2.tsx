@@ -16,7 +16,7 @@ const Koordinaten2 = () => {
             (position) => {
               const { latitude, longitude } = position.coords;
               setLat(latitude.toString());
-              setLlng(longitude.toString());
+              setLng(longitude.toString());
             },
             (error) => {
               setError(`Fehler beim Abrufen der Position: ${error.message}`);
